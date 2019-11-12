@@ -2,7 +2,7 @@
 
 JS/JQ File
 
-DISCLAIMER - The audio used in this lab is copywrited and owned by the Lego Company and its composer Juston Scharvona. This audio was used for academic purposes
+DISCLAIMER - The audio used in this lab is copyrighted and owned by the Lego Company and its composer Juston Scharvona. This audio was used for academic purposes
 All other audio was recorded from open source or sampled from games owned by the Lego Company and heavily modified.
 Credited artists and owners: The Lego Company, Justin Scharvona, Open Source Artists
 Cited Webpages-
