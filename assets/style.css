@@ -1,0 +1,393 @@
+#secondInstructions{	
+	color: blue;
+}
+
+#fuelHudInstructions{	
+	color: green;
+}
+
+#playerHudInstructions{	
+	color: purple;
+}
+
+#mainInstructions{
+	color: green;
+}
+
+#fullscreenNotice{
+	
+	color: red;
+}
+
+#hudInstructions{
+	color: orange;
+}
+
+.background{
+		width: 1900px;
+		height: 1000px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		//background-image: url(assets/background.png);
+}
+
+.gameOverPic{
+		width: 1900px;
+		height: 1000px;
+}
+
+#bonusTime{
+	position:absolute;
+	text-align: center;
+	color: yellow;
+	left: 1645px;
+	top: 30px;
+}
+
+#enemyLocationBlank{
+	position:absolute;
+	text-align: center;
+	color: #B5B5B5;
+	opacity: 0.1;
+	left: 1720px;
+	top: 385px;
+}
+#enemyLocation{
+	position:absolute;
+	text-align: center;
+	color: green;
+	left: 1720px;
+	top: 385px;
+}
+
+#enemyLocationOffRed{
+	position:absolute;
+	text-align: center;
+	color: red;
+	opacity: 0.2;
+	left: 1720px;
+	top: 385px;
+}
+#enemyLocationOffGray{
+	position:absolute;
+	text-align: center;
+	color: gray;
+	opacity: 0.2;
+	left: 1720px;
+	top: 385px;
+}
+
+#pressSpace{
+	position:absolute;
+	text-align: center;
+	color: white;
+	left: 800px;
+	top: 500px;
+}
+
+#displayRepair{
+	position:absolute;
+	text-align: center;
+	color: yellow;
+	left: 1050px;
+	top: 5px;
+}
+
+#displayShield{
+	position:absolute;
+	text-align: center;
+	color: #49BDFF;
+	left: 1080px;
+	top: 5px;
+}
+
+#displayShieldOff{
+	position:absolute;
+	text-align: center;
+	color: red;
+	left: 1080px;
+	top: 5px;
+}
+
+#healthGivenBack{
+	position:absolute;
+	text-align: center;
+	color: red;
+	left: 703.6px;
+	top: 12.5px;
+}
+
+#positiveOK{
+	position:absolute;
+	text-align: center;
+	color: green;
+	left: 1000px;
+	top: 60px;
+}
+
+#negativeOK{
+	position:absolute;
+	text-align: center;
+	color: red;
+	left: 1000px;
+	top: 60px;
+}
+
+#playerHealthIndicator{
+	position:absolute;
+	text-align: center;
+	color: orange;
+	left: 790px;
+	top: 5px;
+}
+
+#randomDamageLabel{
+	position:absolute;
+	text-align: center;
+	color: red;
+	left: 790px;
+	top: 30px;	
+	
+}
+
+#randomDamageLabelBlank{
+	position:absolute;
+	text-align: center;
+	color: #B5B5B5;
+	opacity: 0.3;
+	left: 790px;
+	top: 30px;	
+	
+}
+
+#randomDamageCode{
+	position:absolute;
+	text-align: center;
+	color: yellow;
+	left: 790px;
+	top: 60px;	
+	
+}
+
+#randomDamageCodeBlank{
+	position:absolute;
+	text-align: center;
+	color: #B5B5B5;
+	opacity: 0.3;
+	left: 790px;
+	top: 60px;		
+}
+
+#playerHealthIndicatorBlank{
+	position:absolute;
+	text-align: center;
+	color: #B5B5B5;
+	opacity: 0.3;
+	left: 790px;
+	top: 5px;
+}
+
+#shipHealthIndicator{
+	position:absolute;
+	text-align: center;
+	color: orange;
+	left: 1645px;
+	top: 5px;
+}
+
+#shipHealthIndicatorBlank{
+	position:absolute;
+	text-align: center;
+	color: #B5B5B5;
+	opacity: 0.3;
+	left: 1645px;
+	top: 5px;
+}
+
+#bonusTimeBlank{
+	position:absolute;
+	text-align: center;
+	color: #B5B5B5;
+	opacity: 0.3;
+	left: 1645px;
+	top: 30px;
+}
+#revealAttackers1{
+	position:absolute;
+	text-align: center;
+	color: yellow;
+	left: 1625px;
+	top: 395px;
+}
+#revealAttackers2{
+	position:absolute;
+	text-align: center;
+	color: yellow;
+	left: 1625px;
+	top: 420px;
+}
+#revealAttackers3{
+	position:absolute;
+	text-align: center;
+	color: yellow;
+	left: 1625px;
+	top: 445px;
+}
+#revealAttackers4{
+	position:absolute;
+	text-align: center;
+	color: yellow;
+	left: 1625px;
+	top: 470px;
+}
+#revealAttackersBlank1{
+	position:absolute;
+	text-align: center;
+	//color: #B5B5B5;
+	color: red;
+	opacity: 0.7;
+	left: 1625px;
+	top: 395px;
+}
+#revealAttackersBlank2{
+	position:absolute;
+	text-align: center;
+	//color: #B5B5B5;
+	color: red;
+	opacity: 0.7;
+	left: 1625px;
+	top: 420px;
+}
+#revealAttackersBlank3{
+	position:absolute;
+	text-align: center;
+	color: red;
+	//color: #B5B5B5;
+	opacity: 0.7;
+	left: 1625px;
+	top: 445px;
+}
+#revealAttackersBlank4{
+	position:absolute;
+	text-align: center;
+	color: red;
+	//color: #B5B5B5;
+	opacity: 0.7;
+	left: 1625px;
+	top: 470px;
+}
+
+#healthBox{
+	position: absolute;
+	left: 10px;
+	top: 280px;
+	width: 100px;
+	height: 50px;
+	border: 10px solid white;
+	padding: 5px;
+	margin: 3px;
+	background-color: yellow;	
+	
+	
+}
+
+#fuelBox{
+		position: absolute;
+		left: 10px;
+		top: 190px;
+		width: 100px !important;
+		height: 50px !important;
+		border: 10px solid orange;
+		padding: 5px !important;
+		margin: 3px !important;
+		background-color: yellow;	
+}
+
+#scoreBox{
+	
+		position: absolute;
+		left: 10px;
+		top: 10px;
+		width: 100px;
+		height: 50px;
+		border: 10px solid gray;
+		padding: 5px;
+		margin: 3px;
+		background-color: yellow;
+
+}
+#timerBox{
+	position: absolute;
+	left: 10px;
+	top: 100px;
+	width: 100px;
+	height: 50px;
+	border: 10px solid green;
+	padding: 5px;
+	margin: 3px;
+	background-color: yellow;
+
+}
+
+#ball {
+width: 100px;
+height: 100px;
+position: absolute;
+left: 10px;
+top: 370px;
+//border: 1px solid red;
+}
+
+#bug2{
+width: 100px;
+height: 100px;
+position: absolute;
+	left: 10px;
+	top: 460px;
+}
+
+#bug3{
+width: 100px;
+height: 100px;
+position: absolute;
+	left: 10px;
+	top: 550px;
+}
+
+#bug4{
+width: 100px;
+height: 100px;
+position: absolute;
+	left: 10px;
+	top: 640px;
+}
+
+#fuelCell{
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 10px;
+	top: 730px;
+}
+
+#station{
+	width: 250px;
+	height: 250px;
+	position: absolute;
+	left: 1600px;
+	top: 600px;
+}
+
+#missle {
+width: 150px;
+height: 150px;
+position: absolute;
+	left: 5px;
+	top: 820px;
+//border: 1px solid red;
+}
+#projectile{
+	width: 10px;
+	height: 10px;
+	background-color: red;
+}

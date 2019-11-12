@@ -1,0 +1,295 @@
+<!-- Sean Ottaway Lab6 -->
+<!-- IA version 2.0.7 (non gore version)-->
+<!-- http://ps11.pstcc.edu/~apuretskiy/citc2375/jq/ -->
+<html>
+<head>
+<title>Insectoid Attack v2.0.7 (non-gore)</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"  type="text/css" href="assets/style.css"><!--import custom css file-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/jScript.js"></script><!--import custom js/jq file-->
+</head>
+
+<body onload="startGame();" id = "mainBody">
+
+<!--Load audio-->
+<audio id="myAudio">
+  <source src="assets/sounds/inGame.ogg" type="audio/ogg">
+  <source src="assets/sounds/lvl.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="myAudioDamage">
+  <source src="assets/sounds/alarm.ogg" type="audio/ogg">
+  <source src="assets/sounds/alarm.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="gameOverMusic">
+  <source src="assets/sounds/gameOverMusic.ogg" type="audio/ogg">
+  <source src="assets/sounds/gameOverMusic.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="bonusTimeMusic">
+  <source src="assets/sounds/bonusTimeAndRadar.ogg" type="audio/ogg">
+  <source src="assets/sounds/bonusTimeAndRadar.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="enemyHit">
+  <source src="assets/sounds/enemyHitNew.ogg" type="audio/ogg">
+  <source src="assets/sounds/enemyHitNew.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="fuelPickup">
+  <source src="assets/sounds/fuelPickup.ogg" type="audio/ogg">
+  <source src="assets/sounds/fuelPickup.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="fuelDropOff">
+  <source src="assets/sounds/fuelDropOff.ogg" type="audio/ogg">
+  <source src="assets/sounds/fuelDropOff.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="lowPlayerHealth">
+  <source src="assets/sounds/lowPlayerHealth.ogg" type="audio/ogg">
+  <source src="assets/sounds/lowPlayerHealth.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="playerHealthRestored">
+  <source src="assets/sounds/playerHealthRestored.ogg" type="audio/ogg">
+  <source src="assets/sounds/playerHealthRestored.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="infiniteHealthSound">
+  <source src="assets/sounds/infiniteHealthSound.ogg" type="audio/ogg">
+  <source src="assets/sounds/infiniteHealthSound.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="infiniteMusic">
+  <source src="assets/sounds/infiniteMusic.ogg" type="audio/ogg">
+  <source src="assets/sounds/infiniteMusic.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="mainMenuMusic">
+  <source src="assets/sounds/mainMenuMusic.ogg" type="audio/ogg">
+  <source src="assets/sounds/mainMenuMusic.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="sHit">
+  <source src="assets/sounds/shieldHit.ogg" type="audio/ogg">
+  <source src="assets/sounds/shieldHit.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="sActive">
+  <source src="assets/sounds/shieldActivated.ogg" type="audio/ogg">
+  <source src="assets/sounds/shieldActivated.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="sReady">
+  <source src="assets/sounds/shieldReady.ogg" type="audio/ogg">
+  <source src="assets/sounds/shieldReady.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="sNotReady">
+  <source src="assets/sounds/shieldDeactivated.ogg" type="audio/ogg">
+  <source src="assets/sounds/shieldDeactivated.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container" id = "removeOnGameStart">
+  
+  <!-- Display start game modal on launch -->
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog  modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title" id = "mainInstructions">INSECTOID ATTACK (v2.0.7 Non-Gore)</h4>
+        </div>
+        <div class="modal-body">
+			
+			
+			<p id="fullscreenNotice">Best Played In Fullscreen(1920 x 1080) and Sound ON!</p>
+			<p id = "mainInstructions">Oh No! Insectoid space invaders have blown up your fuel cargo ship. It's now up to you to retrieve fuel from the fuel cell floating in orbit. 
+			Careful though, if one of the Insectoid ships catches you, they'll steal your fuel! 
+			1 enemy ship is randomly chosen to be an attacker and another is randomly chosen to be a fuel station attacker, if the attacker or station attacker ship catches you, you will take damage or your cargo station will take damage. 
+			When you've collected fuel from the cell, head back to the fuel station to store the fuel, this adds to your score. You have 60 seconds to collect as much fuel as you can! 
+			If you save 2,500 units of fuel within 60 seconds, the attackers will be displayed on your radar and you will also get a bonus 60 seconds on your time. 
+			If you save 10,000 units of fuel, your health will be restored. If a player can rack up 30,000 units of fuel, they will be rewarded. Good Luck and watch your HUD and Radar...
+			</p>
+			<p id = "hudInstructions">Keep any eye on your hud. If your health drops below 50%, your ship will generate an error code. If your pilot knows how to repair that code, he will perform a repair worth up to 50% of health!
+			But be careful, he can only make a repair once.
+			</p> 
+			
+			<!--Player instruction GUI-->
+			<p id = "secondInstructions">Use the Arrow Keys to move, fuel collection and disposal are automatic by hovering over the cell and the station. Winner is determined by how much fuel they can save.</p>
+			<br>
+			<p id = "fullscreenNotice">Press Space to start or you can scroll down for the gui guide and more information.</p>
+			<img class="img-responsive" src="assets/images/titleScreen.png" alt="">
+			<p></p>
+			<br>
+			<p></p>
+			<br>
+			<img class="img-responsive" src="assets/images/fuelExample.png" alt="">
+			<img class="img-responsive" src="assets/images/fuelGatherExample.png" alt="">
+			<div id = "hudInstructions">
+			<ul>
+				<br>
+				<li>Hover over the floating fuel cell and your ship's forcepts will automatically collect fuel</li>
+				<br>
+				<li>After you've collected fuel, head back to the fuel station to dispose of the fuel in exchange for score points.</li>
+			</ul>
+			</div>
+			<br>
+			<hr>
+			
+			<img class="img-responsive" src="assets/images/playerHudSingle.png" alt="">
+			<img class="img-responsive" src="assets/images/p1DefaultShield.png" alt="">
+			<img class="img-responsive" src="assets/images/p1DefaultLowShield.png" alt="">
+			<div id = "playerHudInstructions">This is your ship's Heads Up Display. It tells you where your ship is damaged, the error codes, repair lights and status lights
+			 <br>
+			 <ul>
+				<br>
+				<li>If you have a green "OK" on your HUD, your ship is in working condition, red means it is severely damaged under 50% of the ship's health.</li>
+				<br>
+				<li>If your ship is damaged below 50%, your [WARNING MECHANICAL FAILURE] light will come on and give you a damage location light below it. Below that is an error code.</li>
+				<br>
+				<li>If your repair light "RPЯ" is turned on, your pilot has defused an error code and made a repair. Repair has the ability to repair up to 50% of the ships original health, which means you can have over 100% of the health you started with.</li>
+				<br>	
+				<li>Keep an eye on your overshield light "-S", if your overshield is ready, the light will turn on "+S". Press the S key to activate your overshield, you will be protected from all enemies for 10 seconds. When your shield gets low, it will turn red. You can only use your overshield once.</li>
+				<br>
+			</ul>
+			<hr>
+			</div>
+		
+		<img class="img-responsive" src="assets/images/radarHudSingle.png" alt="">
+		<div id = "secondInstructions">This is your radar. If you save 2500 units of fuel, the radar will display which enemy is an attacker and fueling station attacker.
+			<br>
+			 <ul>
+				<br>
+				<li>Radar tracking is always on however, it needs to be activated to reveal which targets are being tracked.</li>
+				<br>
+				<li>On activation, the Located light will turn on and display enemies on the radar screen.</li>
+				<br>
+				<li>Once the radar has been activated, it does not turn off</li>
+				<br>
+				<li>When the radar is activated, attacker names will show up on the screen. If they have a + next to their name, they are a player attacker. If it is a >, they are a fuel station attacker. If only 1 enemy shows up on your radar, they are both the player attacker and the station attacker</li>
+				<br>
+			</ul> 	
+			
+			<hr>
+		</div>
+		
+		<img class="img-responsive" src="assets/images/fuelHudSingle.png" alt="">
+		<div id = "fuelHudInstructions">This is the fueling station's Heads Up Display. It tells you the status of the fueling station and will also display bonus time. 
+			<br>
+			 <ul>
+				<br>
+				<li>If the fueling station's health drops below 50%, the [WARNING DANGER TO FUEL SHIP] light will come one. However, the station cannot be repaired during battle.</li>
+				<br>
+				<li>If you save 2500 units of fuel, the [BONUS TIME ADDED] light will turn on.</li>
+				<br>
+				<li>Damage to the fueling station is done through the player. If a station attacker hits the player, the fueling station's health is affected.</li>
+				<br>	
+			</ul> 	
+		<hr>
+		</div>
+		
+		</div>
+		
+		<div id = "hudInstructions"><p>If you are having compatibility issues</p>
+			<br>
+			<ul>
+				<li>Clear your browser's cache.</li>
+				<br>
+				<li>Try a different browser.</li>
+				<br>
+				<li>Edge, Firefox, and Chrome work the best. Firefox and Chrome will not play main menu music due to default permissions, Edge will.</li>
+				<br>
+				<li>If your game does not fit in the browser window, try zooming out or zooming in, best performace is background reaching both sides and a white bar at the bottom.</li>
+				<br>
+				<li>Sound experience is best enjoyed with a headset or speakers with a subwoofer</li>
+			</ul>
+		</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+		<!--Set background and set info boxes-->
+		<img id = "defaultBackground" class = "background" src="assets/images/background.png">
+		<p id = "scoreBox"></p>
+		<p id = "timerBox"></p>
+		<p id = "fuelBox"></p>
+		<p id = "healthBox"></p>
+		<p id= "playerHealthIndicatorBlank">[WARNING MECHANICAL FAILURE]</p>
+		<p id = "randomDamageCodeBlank">ERROR CODE:</p>
+		<p id = "randomDamageLabelBlank">ERROR SPEC:</p>
+		<p id = "shipHealthIndicatorBlank">[WARNING DANGER TO FUEL SHIP]</p>
+		<p id = "bonusTimeBlank">[BONUS TIME ADDED]</p>
+		<p id = "revealAttackersBlank1"></p>
+		<p id = "revealAttackersBlank2"></p>
+		<p id = "revealAttackersBlank3"></p>
+		<p id = "revealAttackersBlank4"></p>
+		<p id = "enemyLocationOffRed"></p>
+		<p id = "enemyLocationOffGray"></p>
+		
+		<p id = "positiveOK">OK</p>
+		<p id = "negativeOK"></p>
+		<p id = "displayRepair"></p>
+		<p id = "displayShieldOff">- S</p>
+		<p id = "displayShield"></p>
+		<p id = "revealAttackers1"></p>
+		<p id = "revealAttackers2"></p>
+		<p id = "revealAttackers3"></p>
+		<p id = "revealAttackers4"></p>
+		<p id = "enemyLocation"></p>
+		<p id = "bonusTime"></p>
+		<p id = "shipHealthIndicator"></p>
+		<p id = "playerHealthIndicator"></p>
+		<p id = "randomDamageLabel"></p>
+		<p id = "randomDamageCode"></p>
+		<p id = "healthGivenBack"></p>
+		<div id = "removeOnStart"><p  id = "pressSpace">[PRESS SPACE TO START]</p></div>
+		<p id = "shipHealthBox"></p>
+		
+		<!--Spawn entities-->
+		<div class="player"><img id="missle" src="assets/images/p1Default.png"></div>
+		<div class="enemy1"><img id="ball" src="assets/images/bug1.png"></div>
+		<div class="enemy2"><img id="bug2" src="assets/images/bug2.png"></div>
+		<div class="enemy3"><img id="bug3" src="assets/images/bug3.png"></div>
+		<div class="enemy4"><img id="bug4" src="assets/images/bug4.png"></div>
+		<div class="fuel1"><img id="fuelCell" src="assets/images/fuelCell.png"></div>
+		<div class="stationMain"><img id="station" src="assets/images/station.png"></div>
+		
+		<!--Display game over modal-->
+		<div class="modal fade" id="gameOverModal" role="dialog">
+			<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+			<div class="modal-header">
+				<p id= "showDeathReason"></p>
+			
+			</div>
+			<div class="modal-body">
+			<p id= "hudInstructions">Press F5 to start a new game</p>
+			<p id= "showScore"></p>
+			<p id = "showFuelCollected"></p>
+			<p id = "showFuelSaved"></p>
+			<p id = "showFuelLost"></p>
+			<p id = "showHealthRemaining"></p>
+			<p id = "showHealthLost"></p>
+			<p id = "showAttacker"></p>
+			<p id = "showShipAttacker"></p>
+			<p id = "shipRepaired"></p>
+			<img class="img-responsive" src="assets/images/gameOverScreenBlood.png" alt="">
+			</div>
+
+			</div>
+			</div>
+		</div>		
+	
+</body>
+</html>
